@@ -1,5 +1,5 @@
 /**
- * View.java
+ * Subscriber.java
  *
  * @author Isidro Flores
  * @author Rustico De la Cruz
@@ -11,5 +11,5 @@
 
 package mvc;
 
-public class View {
+public class Subscriber {
 }
