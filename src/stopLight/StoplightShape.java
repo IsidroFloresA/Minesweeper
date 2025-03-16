@@ -1,15 +1,3 @@
-/**
- * StopLightShape.java
- *
- * @author Jon Pearce
- * @author Isidro Flores
- * @author Rustico De la Cruz
- * @author Ryan Nikopour
- *
- * Edits:
- *      Isidro 03/10/2025: Created File
- */
-
 package stopLight;
 
 import java.awt.*;
@@ -19,18 +7,20 @@ public class StoplightShape {
     private Stoplight light;
     private int height, width, xc, yc;
     private Ellipse2D.Double redLight, yellowLight, greenLight;
+
     public StoplightShape(Stoplight light, int xc, int yc, int height) {
         this.light = light;
         this.height = height;
         this.xc = xc;
         this.yc = yc;
         int delta = 5;
-        double diam = (height - 4 * delta)/3;
-        this.width = (int)(diam + 2 * delta);
+        double diam = (height - 4 * delta) / 3;
+        this.width = (int) (diam + 2 * delta);
         redLight = new Ellipse2D.Double(xc + delta, yc + delta, diam, diam);
         yellowLight = new Ellipse2D.Double(xc + delta, yc + diam + 2 * delta, diam, diam);
         greenLight = new Ellipse2D.Double(xc + delta, yc + 2 * diam + 3 * delta, diam, diam);
     }
+
     public StoplightShape(Stoplight light) {
         this(light, 50, 50, 100);
     }
@@ -71,7 +61,7 @@ public class StoplightShape {
             gc.setColor(Color.RED);
             gc.fill(redLight);
         } else {
-            //throw new Exception("Invalid color: " + light.getColor().toString());
+            // throw new Exception("Invalid color: " + light.getColor().toString());
         }
         gc.setColor(oldColor);
     }

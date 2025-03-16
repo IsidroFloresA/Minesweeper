@@ -1,28 +1,19 @@
-/**
- * StoplightFactory.java
- *
- * @author Jon Pearce
- * @author Isidro Flores
- * @author Rustico De la Cruz
- * @author Ryan Nikopour
- *
- * Edits:
- *      Isidro 03/10/2025: Created File
- */
-
 package stopLight;
 
 import mvc.*;
 
 public class StoplightFactory implements AppFactory {
-
-    public Model makeModel() { return new Stoplight(); }
-
-    public View makeView(Model m) {
-        return new StoplightView((Stoplight)m);
+    public Model makeModel() {
+        return new Stoplight();
     }
 
-    public String[] getEditCommands() { return new String[] {"Change"}; }
+    public View makeView(Model m) {
+        return new StoplightView((Stoplight) m);
+    }
+
+    public String[] getEditCommands() {
+        return new String[] { "Change" };
+    }
 
     // source added 3/15 to support text fields
     public Command makeEditCommand(Model model, String type, Object source) {
@@ -31,10 +22,12 @@ public class StoplightFactory implements AppFactory {
         return null;
     }
 
-    public String getTitle() { return "Stop Light Simulator"; }
+    public String getTitle() {
+        return "Stop Light Simulator";
+    }
 
     public String[] getHelp() {
-        return new String[] {"click Change to cycle through colors"};
+        return new String[] { "click Change to cycle through colors" };
     }
 
     public String about() {

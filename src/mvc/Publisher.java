@@ -5,5 +5,5 @@ public interface Publisher {
 
     void unsubscribe(Subscriber s);
 
-    void notify();
+    void publish();
 }

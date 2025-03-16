@@ -12,6 +12,9 @@
 package mvc;
 
 public class Command {
-    void execute() {
+    protected Model model;
+
+    public Command(Model model) {
+        this.model = model;
     }
 }

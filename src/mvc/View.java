@@ -1,17 +1,6 @@
-
-/**
- * View.java
- *
- * @author Isidro Flores
- * @author Rustico De la Cruz
- * @author Ryan Nikopour
- *
- * Edits:
- *      Isidro 03/10/2025: Created File
- */
-import javax.swing.JPanel;
-
 package mvc;
+
+import javax.swing.JPanel;
 
 public class View extends JPanel implements Subscriber {
     public Model model;
@@ -25,6 +14,6 @@ public class View extends JPanel implements Subscriber {
     }
 
     public void update() {
-        repaint();
+        this.repaint();
     }
 }

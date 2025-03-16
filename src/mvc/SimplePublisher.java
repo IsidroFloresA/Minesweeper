@@ -1,23 +1,12 @@
+package mvc;
 
-/**
- * Publisher.java
- *
- * @author Isidro Flores
- * @author Rustico De la Cruz
- * @author Ryan Nikopour
- *
- * Edits:
- *      Isidro 03/10/2025: Created File
- */
 import java.util.ArrayList;
 import java.io.*;
 
-package mvc;
-
-public class simplePublisher implements Publisher, Serializable {
+public class SimplePublisher implements Publisher, Serializable {
     private ArrayList<Subscriber> subscribers;
 
-    public simplePublisher() {
+    public SimplePublisher() {
         subscribers = new ArrayList<>();
     }
 
@@ -29,7 +18,7 @@ public class simplePublisher implements Publisher, Serializable {
         subscribers.remove(s);
     }
 
-    public void notify() {
+    public void publish() {
         for (Subscriber subscriber : subscribers) {
             subscriber.update();
         }

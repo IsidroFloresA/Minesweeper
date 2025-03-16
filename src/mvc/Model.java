@@ -11,7 +11,7 @@
 
 package mvc;
 
-public class Model extends simplePublisher {
+public class Model extends SimplePublisher {
     private Boolean unsavedChanges = false;
     private String fileName = null;
 
