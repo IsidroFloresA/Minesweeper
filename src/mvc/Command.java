@@ -1,14 +1,3 @@
-/**
- * Command.java
- *
- * @author Isidro Flores
- * @author Rustico De la Cruz
- * @author Ryan Nikopour
- *
- * Edits:
- *      Isidro 03/10/2025: Created File
- */
-
 package mvc;
 
 public class Command {
@@ -16,5 +5,8 @@ public class Command {
 
     public Command(Model model) {
         this.model = model;
+    }
+
+    public void execute() {
     }
 }

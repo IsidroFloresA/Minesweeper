@@ -7,6 +7,9 @@ public class StoplightView extends View {
 
     public StoplightView(Stoplight light) {
         super(light);
+        this.setPreferredSize(new Dimension(500, 300)
+
+        );
     }
 
     public void paintComponent(Graphics gc) {

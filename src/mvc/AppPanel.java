@@ -3,6 +3,7 @@ package mvc;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.util.Arrays;
 
 // AppPanel is the MVC controller
 public class AppPanel extends JPanel implements Subscriber, ActionListener {
@@ -20,10 +21,13 @@ public class AppPanel extends JPanel implements Subscriber, ActionListener {
         this.factory = factory;
         this.view = factory.makeView(this.model);
         this.controlPanel = new JPanel();
+        this.model.subscribe(this);
 
         frame = new SafeFrame();
+        frame.setLayout(new BorderLayout());
         Container cp = frame.getContentPane();
         cp.add(this);
+        cp.add(this.controlPanel, BorderLayout.WEST);
         cp.add(this.view, BorderLayout.EAST);
         frame.setJMenuBar(createMenuBar());
         frame.setTitle(factory.getTitle());
@@ -90,8 +94,9 @@ public class AppPanel extends JPanel implements Subscriber, ActionListener {
                 Utilities.inform(factory.about());
             } else if (cmmd.equals("Help")) {
                 Utilities.inform(factory.getHelp());
-            } else { // must be from Edit menu
-                // ???
+            } else if (cmmd.equals("Change")) {
+                Command command = this.factory.makeEditCommand(this.model, "Change", this);
+                command.execute();
             }
         } catch (Exception e) {
             handleException(e);

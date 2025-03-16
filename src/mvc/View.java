@@ -1,12 +1,13 @@
 package mvc;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public class View extends JPanel implements Subscriber {
     public Model model;
 
     public View(Model m) {
         this.model = m;
+        this.model.subscribe(this);
     }
 
     public void setModel(Model m) {
@@ -14,6 +15,6 @@ public class View extends JPanel implements Subscriber {
     }
 
     public void update() {
-        this.repaint();
+        repaint();
     }
 }
