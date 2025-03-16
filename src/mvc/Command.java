@@ -12,4 +12,6 @@
 package mvc;
 
 public class Command {
+    void execute() {
+    }
 }
