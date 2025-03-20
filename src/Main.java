@@ -1,10 +1,8 @@
 import mvc.*;
-import stopLight.*;
+import mineField.*;
 
 public class Main {
     public static void main(String[] args) {
-        AppFactory factory = new StoplightFactory();
-        AppPanel stoplightPanel = new StoplightPanel(factory);
-        stoplightPanel.display();
+        MineField testMineField = new MineField();
     }
 }
