@@ -1,3 +1,16 @@
+/**
+ * MineFieldView.java
+ *
+ * @author Isidro Flores
+ * @author Rustico De la Cruz
+ * @author Ryan Nikopour
+ *
+ * Edits:
+ *      Isidro     03/10/2025: Created File
+ *      All        03/14/2025: Edit the file
+ *      Isidro     03/20/2025: Finished editing the file
+ */
+
 package mineField;
 
 import mvc.*;
@@ -6,7 +19,7 @@ import java.awt.*;
 
 public class MineFieldView extends View {
     private static final int CELL_SIZE = 30;
-    private static final int SIZE = 10; 
+    private static final int SIZE = 10;
 
     public MineFieldView(Model model) {
         super(model);
@@ -45,10 +58,8 @@ public class MineFieldView extends View {
                         g2.fillOval(x + 5, y + 5, CELL_SIZE - 10, CELL_SIZE - 10);
                     } else {
                         int neighborMines = mineField.getNeighborMines(r, c);
-                        if (neighborMines > 0) {
-                            g2.setColor(Color.BLUE);
-                            g2.drawString(String.valueOf(neighborMines), x + 10, y + 20);
-                        }
+                        g2.setColor(Color.BLUE);
+                        g2.drawString(String.valueOf(neighborMines), x + 10, y + 20);
                     }
                 } else if (mineField.isFlagged(r, c)) {
                     g2.setColor(Color.GREEN);
@@ -56,5 +67,12 @@ public class MineFieldView extends View {
                 }
             }
         }
+
+        int playerRow = mineField.getPlayerRow();
+        int playerCol = mineField.getPlayerCol();
+        int playerX = playerCol * CELL_SIZE;
+        int playerY = playerRow * CELL_SIZE;
+        g2.setColor(Color.ORANGE);
+        g2.fillOval(playerX + 5, playerY + 5, CELL_SIZE - 10, CELL_SIZE - 10);
     }
 }

@@ -3,6 +3,8 @@ import mineField.*;
 
 public class Main {
     public static void main(String[] args) {
-        MineField testMineField = new MineField();
+        AppFactory factory = new MineFieldFactory();
+        AppPanel panel = new MineFieldAppPanel(factory);
+        panel.display();
     }
 }
