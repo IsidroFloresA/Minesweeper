@@ -16,7 +16,7 @@ package mvc;
 import java.util.ArrayList;
 import java.io.*;
 
-public class SimplePublisher implements Publisher, Serializable {
+public class SimplePublisher implements Publisher {
     private ArrayList<Subscriber> subscribers;
 
     public SimplePublisher() {

@@ -13,7 +13,9 @@
  */
 package mvc;
 
-public class Model extends SimplePublisher {
+import java.io.Serializable;
+
+public class Model extends SimplePublisher implements Serializable {
     private Boolean unsavedChanges = false;
     private String fileName = null;
 
