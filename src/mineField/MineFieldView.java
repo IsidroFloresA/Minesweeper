@@ -51,8 +51,10 @@ public class MineFieldView extends View {
                 g2.fillRect(x, y, CELL_SIZE, CELL_SIZE);
                 g2.setColor(Color.BLACK);
                 g2.drawRect(x, y, CELL_SIZE, CELL_SIZE);
-
-                if (mineField.isRevealed(r, c)) {
+                if (r == SIZE - 1 && c == SIZE - 1) {
+                    g2.setColor(Color.GREEN);
+                    g2.fillRect(x, y, CELL_SIZE, CELL_SIZE);
+                } else if (mineField.isRevealed(r, c)) {
                     if (mineField.isMined(r, c)) {
                         g2.setColor(Color.RED);
                         g2.fillOval(x + 5, y + 5, CELL_SIZE - 10, CELL_SIZE - 10);

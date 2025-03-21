@@ -52,7 +52,9 @@ public class AppPanel extends JPanel implements Subscriber, ActionListener {
     }
 
     public void update() {
-        /* override in extensions if needed */ }
+        this.revalidate();
+        this.repaint();
+    }
 
     public Model getModel() {
         return model;
