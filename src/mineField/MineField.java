@@ -1,3 +1,15 @@
+/**
+ * MineField.java
+ *
+ * @author Isidro Flores
+ * @author Rustico De la Cruz
+ * @author Ryan Nikopour
+ *
+ * Edits:
+ *      Isidro     03/10/2025: Created File
+ *      All        03/14/2025: Edit the file
+ *      Ryan	   03/20/2025: Finished editing the file
+ */
 package mineField;
 
 import mvc.Model;
@@ -17,6 +29,7 @@ public class MineField extends Model {
 	private boolean[][] revealed;
 	private boolean[][] flagged;
 	private boolean gameOver;
+	private boolean gameWon;
 	private int safePatches;
 
 	private int playerRow = 0;
@@ -31,9 +44,11 @@ public class MineField extends Model {
 		revealed = new boolean[SIZE][SIZE];
 		flagged = new boolean[SIZE][SIZE];
 		gameOver = false;
+		gameWon = false;
 		safePatches = SIZE * SIZE - MINES;
 		placeMines();
 		calculateNeighbors();
+		revealed[playerRow][playerCol] = true;
 	}
 
 	private void placeMines() {
@@ -79,8 +94,14 @@ public class MineField extends Model {
 		if (gameOver) {
 			throw new Exception("Game is over. Restart to play again.");
 		}
+		if (gameWon) {
+			throw new Exception("Game already won. Restart to play again.");
+		}
 		if (revealed[r][c]) {
 			throw new Exception("Patch already revealed.");
+		}
+		if (r == SIZE - 1 && c == SIZE - 1) {
+			gameWon = true;
 		}
 
 		if (mines[r][c]) {
@@ -185,5 +206,13 @@ public class MineField extends Model {
 		probe(playerRow, playerCol);
 
 		changed();
+	}
+
+	public int getPlayerRow() {
+		return playerRow;
+	}
+
+	public int getPlayerCol() {
+		return playerCol;
 	}
 }

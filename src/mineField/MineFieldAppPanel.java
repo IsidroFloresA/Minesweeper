@@ -8,7 +8,7 @@
  * Edits:
  *      Isidro     03/10/2025: Created File
  *      All        03/14/2025: Edit the file
- *      Isidro    03/20/2025: Finished editing the file
+ *      Isidro     03/20/2025: Finished editing the file
  */
 package mineField;
 
